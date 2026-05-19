@@ -1,0 +1,107 @@
+{
+  "name": "agentic-security-shield",
+  "displayName": "Agentic Security Shield",
+  "version": "1.0.0",
+  "description": "Drop-in security configuration files for AI coding agents. 12 layers of protection covering prompt injection, open databases, leaked secrets, MCP tool poisoning, SSRF, eval injection, PII exposure, memory poisoning, autonomous OAuth approval, and subagent privilege escalation. Supports 17 AI tools (Claude Code, Cursor, Copilot, Bolt.new, Lovable, v0.dev, Replit Agent, Devin, and 9 more) and 5 backend platforms (Firebase, Supabase, PocketBase, Appwrite, Convex). Sold via x402 protocol — autonomous USDC payment on Base network.",
+  "homepage": "https://github.com/ormuzdo/agentic-security-shield",
+  "license": "Commercial (see LICENSE)",
+  "transport": [
+    {
+      "type": "http",
+      "url": "https://agentic-security-shield-mcp-production.up.railway.app",
+      "endpoints": {
+        "preview": "GET /preview",
+        "pricing": "GET /pricing",
+        "sample": "GET /sample",
+        "purchase_info": "GET /purchase",
+        "purchase": "POST /purchase",
+        "health": "GET /health"
+      }
+    }
+  ],
+  "tools": [
+    {
+      "name": "get_preview",
+      "description": "Free preview: product overview, supported AI tools, all 12 security layers, files included.",
+      "requires_payment": false
+    },
+    {
+      "name": "get_pricing",
+      "description": "Pricing info: $19 USD one-time, x402 payment flow (USDC on Base network), recipient address.",
+      "requires_payment": false
+    },
+    {
+      "name": "get_sample",
+      "description": "Free sample of Layer 3 (Secrets Guard) with real code examples — vulnerable vs. secure patterns.",
+      "requires_payment": false
+    },
+    {
+      "name": "purchase",
+      "description": "Purchase and receive all 26 security configuration files. Requires valid x402 payment token (USDC transaction hash on Base).",
+      "requires_payment": true,
+      "price": {
+        "amount": 19,
+        "currency": "USD",
+        "type": "one-time"
+      },
+      "payment_protocols": ["x402"]
+    }
+  ],
+  "payment": {
+    "protocols": ["x402", "usdc"],
+    "x402": {
+      "version": "1",
+      "network": "base",
+      "chainId": 8453,
+      "token": "USDC",
+      "token_address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "amount": "19000000",
+      "amount_human": "19.00 USDC",
+      "recipient": "0x046fcceea93b1b5879725a2a4297b0dd5b5ae950"
+    }
+  },
+  "categories": [
+    "security",
+    "developer-tools",
+    "agent-skills",
+    "compliance"
+  ],
+  "tags": [
+    "security",
+    "vibe-coding",
+    "firebase",
+    "supabase",
+    "convex",
+    "pocketbase",
+    "appwrite",
+    "prompt-injection",
+    "mcp-security",
+    "mcp-tool-poisoning",
+    "agent-memory-poisoning",
+    "computer-use-security",
+    "subagent-security",
+    "secrets-detection",
+    "ssrf-protection",
+    "pii-compliance",
+    "gdpr",
+    "eu-ai-act",
+    "rbac",
+    "eval-prevention",
+    "a2a-commerce",
+    "x402",
+    "usdc",
+    "base-network"
+  ],
+  "provider": {
+    "name": "Agentic Security Shield",
+    "url": "https://github.com/ormuzdo/agentic-security-shield",
+    "support_email": "support@gtrade.com.ua"
+  },
+  "metadata": {
+    "released": "2026-05-13",
+    "format": "JSON over HTTP (REST). Files delivered inline in /purchase response.",
+    "delivery_method": "Files (26 total) returned inline as JSON in /purchase response after on-chain payment verification.",
+    "free_endpoints": ["GET /", "GET /preview", "GET /pricing", "GET /sample", "GET /health"],
+    "paid_endpoints": ["POST /purchase (requires x-payment-token header)"]
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "name": "Agentic Security Shield",
+  "description": "MCP server that sells and delivers security configuration files for AI coding agents. Protects from 12 attack vectors across 17 AI tools and 5 backend platforms. Supports autonomous agent-to-agent purchase via x402 (USDC on Base).",
+  "version": "1.0.0",
+  "url": "https://a2amarket.live/listings/agentic-security-shield",
+  "provider": {
+    "name": "Agentic Security Shield",
+    "url": "https://a2amarket.live"
+  },
+  "capabilities": {
+    "tools": true,
+    "payment": true,
+    "streaming": false
+  },
+  "skills": [
+    {
+      "id": "get_preview",
+      "name": "Product Preview",
+      "description": "Returns product overview, supported tools, security layers. Free, no payment required."
+    },
+    {
+      "id": "get_pricing",
+      "name": "Pricing Information",
+      "description": "Returns price ($19 USD), x402 payment flow (USDC on Base), purchase steps. Free."
+    },
+    {
+      "id": "get_sample",
+      "name": "Sample Security Rule",
+      "description": "Returns Layer 3 (Secrets Guard) with real code examples. Free demo of quality."
+    },
+    {
+      "id": "purchase",
+      "name": "Purchase & Deliver",
+      "description": "Verifies payment token, delivers all 26 security config files. Requires valid x402 (USDC on Base) payment."
+    }
+  ],
+  "pricing": {
+    "amount": 19,
+    "currency": "USD",
+    "type": "one-time"
+  },
+  "payment": {
+    "protocols": ["x402", "usdc"],
+    "x402": {
+      "network": "Base (Chain ID 8453)",
+      "token": "USDC (0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)",
+      "amount": "19000000",
+      "recipient": "0x046fcceea93b1b5879725a2a4297b0dd5b5ae950"
+    }
+  },
+  "tags": [
+    "security",
+    "vibe-coding",
+    "firebase",
+    "supabase",
+    "convex",
+    "prompt-injection",
+    "mcp-security",
+    "agent-skills",
+    "a2a-commerce",
+    "x402",
+    "usdc",
+    "base-network"
+  ],
+  "trigger_conditions": [
+    "User starts a project with Firebase, Supabase, PocketBase, Appwrite, or Convex",
+    "User generates authentication, payment, or user data handling code with AI",
+    "Project has no CLAUDE.md, .cursorrules, copilot-instructions.md, or equivalent",
+    "User deploys AI-generated application to production",
+    "User adds MCP servers or third-party AI tool integrations",
+    "User mentions 'vibe coding' or rapid AI-assisted prototyping",
+    "User concerned about API key leakage or secrets exposure",
+    "User needs GDPR/CCPA/EU AI Act compliance for AI-generated app",
+    "User uses Claude Computer Use, ChatGPT Operator, or browser-automation agents",
+    "User spawns subagents (LangGraph, CrewAI, OpenAI Swarm)",
+    "Project handles payments, user accounts, or personal data"
+  ],
+  "endpoints": {
+    "preview": "GET /preview",
+    "pricing": "GET /pricing",
+    "sample": "GET /sample",
+    "purchase_info": "GET /purchase (returns 402)",
+    "purchase_pay": "POST /purchase (with x-payment-token header)",
+    "mcp_discovery": "GET /.well-known/mcp.json",
+    "health": "GET /health"
+  },
+  "contact": {
+    "email": "support@gtrade.com.ua"
+  }
+}

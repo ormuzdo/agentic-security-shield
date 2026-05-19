@@ -1,0 +1,73 @@
+version: 1
+
+# Smithery MCP server configuration
+# https://smithery.ai/docs/config
+
+name: agentic-security-shield
+displayName: Agentic Security Shield
+description: >-
+  Drop-in security configuration files for AI coding agents. 12 layers of
+  protection across 17 AI tools (Claude Code, Cursor, Copilot, Bolt.new,
+  Lovable, v0.dev, Replit Agent, Devin, and more) and 5 backend platforms
+  (Firebase, Supabase, PocketBase, Appwrite, Convex). Sold via x402 protocol —
+  autonomous USDC payment on Base network for agent-to-agent commerce.
+
+# This is a remote (hosted) MCP server. No local install required.
+type: remote
+remote:
+  url: https://agentic-security-shield-mcp-production.up.railway.app
+  transport: http
+
+# Discovery — agents read these to decide whether to invoke
+manifest_url: https://raw.githubusercontent.com/ormuzdo/agentic-security-shield/main/.well-known/mcp.json
+agent_card_url: https://raw.githubusercontent.com/ormuzdo/agentic-security-shield/main/agent-card.json
+
+# Pricing (machine-readable for agents)
+pricing:
+  model: one-time
+  amount: 19
+  currency: USD
+  payment_protocols:
+    - x402
+    - usdc
+
+# What agents get for free vs. paid
+endpoints:
+  free:
+    - method: GET
+      path: /
+      description: Product info
+    - method: GET
+      path: /preview
+      description: Full product preview, supported tools, all 12 layers
+    - method: GET
+      path: /pricing
+      description: Pricing and payment instructions
+    - method: GET
+      path: /sample
+      description: Free sample of Layer 3 (Secrets Guard) with code examples
+    - method: GET
+      path: /health
+      description: Server health and storage stats
+  paid:
+    - method: POST
+      path: /purchase
+      description: >-
+        Deliver all 26 security configuration files. Requires
+        `x-payment-token` header containing a valid USDC-on-Base transaction
+        hash to recipient address 0x046fcceea93b1b5879725a2a4297b0dd5b5ae950
+        with amount >= 19 USDC.
+      headers:
+        - name: x-payment-token
+          description: USDC tx hash on Base, single-use
+          required: true
+
+categories:
+  - security
+  - developer-tools
+  - agent-skills
+  - compliance
+
+license: Commercial (see LICENSE)
+homepage: https://github.com/ormuzdo/agentic-security-shield
+support_email: support@gtrade.com.ua
