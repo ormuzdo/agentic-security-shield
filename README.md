@@ -13,7 +13,9 @@
 
 ## What it does
 
-12 layers of security rules covering the most common mistakes AI coding agents make:
+**12 security layers + 6 stack-specific hardening patterns** covering the most common mistakes AI coding agents make.
+
+### Core layers (12)
 
 1. **Prompt Injection Guard** — blocks hidden instructions in fetched content
 2. **Backend Lockdown** — Firebase, Supabase, PocketBase, Appwrite, Convex
@@ -27,6 +29,21 @@
 10. **MCP Tool Description Guard** — instruction injection in tool metadata
 11. **Computer Use & Browser Agent Guard** — autonomous OAuth, screen injection
 12. **Subagent & Multi-Agent Guard** — privilege escalation via spawned agents
+
+### Stack-specific hardening patterns (6, new in v1.0.1)
+
+- **A. OAuth / SSO** — `state` CSRF (constant-time compare), PKCE for public clients, JWKS-verified ID tokens, claim validation, fixed redirect
+- **B. JWT Authentication** — algorithm pinning, ≥32-char secret floor, separate access/refresh secrets, `/login` rate-limit + constant-time bcrypt (no user enumeration)
+- **C. WebSocket Authentication** — JWT-only identity (never `?userId=`), origin allowlist via `verifyClient`, `maxPayload`, heartbeat
+- **D. CORS** — explicit allowlist for credentialed/state-changing endpoints
+- **E. File Upload Magic-Byte Validation** — extension + MIME + magic-bytes + size cap; server-generated UUID filename
+- **F. Image Decompression Bombs** — `sharp({ limitInputPixels })`, streaming byte cap
+
+### Also included
+
+- **`RULES_LITE.md`** — universal portable NEVER/ALWAYS ruleset for small-context LLMs (Llama, Qwen-small, local models) — paste into the system prompt
+- **Quick Reference Card** on every tool-specific file
+- **Vibe-coding files** (`bolt.md`, `lovable.md`, `v0.md`, `replit.md`, `devin.md`) in pure NEVER/ALWAYS format with platform-specific quirks
 
 ## Supported AI tools (17)
 

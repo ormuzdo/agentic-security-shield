@@ -1,7 +1,7 @@
 {
   "name": "Agentic Security Shield",
-  "description": "MCP server that sells and delivers security configuration files for AI coding agents. Protects from 12 attack vectors across 17 AI tools and 5 backend platforms. Supports autonomous agent-to-agent purchase via x402 (USDC on Base).",
-  "version": "1.0.0",
+  "description": "MCP server that sells and delivers security configuration files for AI coding agents. Protects from 12 attack vectors plus 6 stack-specific hardening patterns (OAuth, JWT, WebSocket, CORS, file magic-bytes, image decompression bombs) across 17 AI tools and 5 backend platforms. Supports autonomous agent-to-agent purchase via x402 (USDC on Base).",
+  "version": "1.0.1",
   "url": "https://a2amarket.live/listings/agentic-security-shield",
   "provider": {
     "name": "Agentic Security Shield",
@@ -31,7 +31,7 @@
     {
       "id": "purchase",
       "name": "Purchase & Deliver",
-      "description": "Verifies payment token, delivers all 26 security config files. Requires valid x402 (USDC on Base) payment."
+      "description": "Verifies payment token, delivers all 27 security config files (incl. RULES_LITE.md for small-context LLMs). Requires valid x402 (USDC on Base) payment."
     }
   ],
   "pricing": {
