@@ -3,7 +3,7 @@
   "name": "io.github.ormuzdo/agentic-security-shield",
   "title": "Agentic Security Shield",
   "description": "12-layer security configs for AI coding agents. Autonomous purchase via x402 (USDC on Base).",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "websiteUrl": "https://smithery.ai/server/ormuzdo/agentic-security-shield",
   "repository": {
     "url": "https://github.com/ormuzdo/agentic-security-shield",
@@ -19,7 +19,7 @@
   "_meta": {
     "io.modelcontextprotocol.registry/publisher-provided": {
       "tool": "manual",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "pricing": {
         "amount": 19,
         "currency": "USD",
